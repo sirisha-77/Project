@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Honey Bites Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- React -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <!-- Styles -->
+  <style>
+    body { margin: 0; font-family: sans-serif; background: #fff8ec; }
+    .app { display: flex; min-height: 100vh; }
+    .sidebar {
+      width: 180px; background: #ffd966; padding: 20px;
+    }
+    .sidebar h2, .sidebar a { color: #7c4d00; text-align: center; display: block; margin: 10px 0; text-decoration: none; }
+    .main { flex: 1; padding: 20px; }
+    .card { background: #fff; padding: 15px; margin: 10px 0; border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    .card h3 { margin: 0 0 5px; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const products = [
+      { name: "Wildflower Honey", desc: "Natural and sweet." },
+      { name: "Honey Bar", desc: "Tasty snack bar." }
+    ];
+
+    function App() {
+      return (
+        <div className="app">
+          <div className="sidebar">
+            <h2>🍯 Honey Bites</h2>
+            <a href="#">Dashboard</a>
+            <a href="#">Products</a>
+          </div>
+          <div className="main">
+            <h1>Dashboard</h1>
+            {products.map((p, i) => (
+              <div key={i} className="card">
+                <h3>{p.name}</h3>
+                <p>{p.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
+</html>
